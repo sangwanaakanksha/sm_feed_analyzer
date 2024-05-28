@@ -1,0 +1,23 @@
+  {
+    "manifest_version": 2,
+    "name": "Twitter Feed Analyzer",
+    "version": "1.0",
+    "description": "Analyzes tweets on the Twitter feed.",
+    "permissions": [
+      "activeTab",
+      "webNavigation"
+    ],
+    "background": {
+      "scripts": ["./src/background.js"],
+      "persistent": false
+    },
+    "content_scripts": [
+      {
+        "matches": ["https://twitter.com/*"],
+        "js": ["cheerio.min.js", "./src/content.js"]
+      }
+    ],
+    "browser_action": {
+      "default_icon": "icon.png"
+    }
+  }
